@@ -70,7 +70,7 @@ class App extends React.Component {
 
           <LeftDrawer navDrawerOpen={navDrawerOpen}
             menus={this.menu}
-            username="Olá Admin" />
+            username="Olá Now Online" />
 
           <div style={styles.container}>
             {this.props.children}
