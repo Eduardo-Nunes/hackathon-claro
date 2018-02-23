@@ -28,8 +28,7 @@ class App extends React.Component {
 
     this.menu = [
       { text: 'Dashboard', icon: <Assessment />, link: '/dashboard' },
-      { text: 'Telas', icon: <Web />, link: '/screens' },
-      { text: 'Destaques', icon: <GridOn />, link: '/highlights' }
+      { text: 'Reviews', icon: <Web />, link: '/reviews' },
     ]
   }
 
@@ -64,7 +63,7 @@ class App extends React.Component {
     };
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(themeDefault)}>
+      <MuiThemeProvider >
         <div>
           <Header styles={styles.header}
             handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer.bind(this)} />
