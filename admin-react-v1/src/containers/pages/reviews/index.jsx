@@ -42,7 +42,7 @@ class ReviewsPage extends React.Component {
             };
 
             const componentRow = (
-                <ReviewListItem review={reviewList[i]}/>
+                <ReviewListItem key={`ReviewListIem-${i}`} review={reviewList[i]}/>
             );
             rows.push(componentRow);
         }
@@ -54,17 +54,6 @@ class ReviewsPage extends React.Component {
             <div>
                 <h3 style={globalStyles.navigation}>Application / Tela</h3>
                 <Table style={{tableLayout: 'auto'}}>
-                    {/*<TableHeader displaySelectAll={false} adjustForCheckbox={false}>*/}
-                        {/*<TableRow>*/}
-                            {/*<TableHeaderColumn>packageName</TableHeaderColumn>*/}
-                            {/*<TableHeaderColumn>appVersionCode</TableHeaderColumn>*/}
-                            {/*<TableHeaderColumn>appVersionName</TableHeaderColumn>*/}
-                            {/*<TableHeaderColumn>starRating</TableHeaderColumn>*/}
-                            {/*<TableHeaderColumn>reviewText</TableHeaderColumn>*/}
-                            {/*<TableHeaderColumn>categoryName</TableHeaderColumn>*/}
-                            {/*<TableHeaderColumn>action</TableHeaderColumn>*/}
-                        {/*</TableRow>*/}
-                    {/*</TableHeader>*/}
                     <TableBody displayRowCheckbox={false}>
                         <TableRow>
                         <TableHeaderColumn>packageName</TableHeaderColumn>
