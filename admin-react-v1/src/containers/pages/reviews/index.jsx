@@ -4,6 +4,7 @@ import {
     FlatButton, RaisedButton, Table, TableBody, TableHeader, TableHeaderColumn, TableRow,
     TableRowColumn
 } from "material-ui";
+import ReviewListIem from "../../../componentes/review-list-item";
 
 class ReviewsPage extends React.Component {
 
@@ -11,14 +12,8 @@ class ReviewsPage extends React.Component {
         const rows = [];
         for (let i = 0; i <= 10; i++) {
             const componentRow = (
-                <TableRow>
-                    <TableRowColumn>{i}</TableRowColumn>
-                    <TableRowColumn>John Smith - {i}</TableRowColumn>
-                    <TableRowColumn>Employed - {i}</TableRowColumn>
-                    <RaisedButton label="Primary" primary={true} onClick={console.log("clicou")}/>
-                </TableRow>
+                <ReviewListIem review={i}/>
             );
-
             rows.push(componentRow);
         }
 
