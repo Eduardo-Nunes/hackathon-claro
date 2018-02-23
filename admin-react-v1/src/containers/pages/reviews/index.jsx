@@ -1,10 +1,7 @@
 import React from 'react';
 import globalStyles from '../../../styles/global';
 // import { RingLoader } from 'react-spinners';
-import {
-    CircularProgress,
-    Table, TableBody, TableHeaderColumn, TableRow,
-} from "material-ui";
+import {CircularProgress, Table, TableBody, TableHeaderColumn, TableRow,} from "material-ui";
 import ReviewListItem from "../../../componentes/review-list-item";
 import services from "../../../services";
 
@@ -27,13 +24,15 @@ class ReviewsPage extends React.Component {
             appReviews: null
         };
     }
+
     componentDidMount() {
         services.getAppReviews()
             .then(data => {
                 console.log(data.data);
-                this.setState({ appReviews: data.data });
+                this.setState({appReviews: data.data});
             })
     }
+
     renderRows() {
         const rows = [];
         for (let i = 0; i < this.state.appReviews.length; i++) {
@@ -44,11 +43,12 @@ class ReviewsPage extends React.Component {
         }
         return rows;
     }
+
     render() {
         if (!this.state.appReviews) {
             return (
                 <div className='sweet-loading' style={{width: '100%'}}>
-                    <CircularProgress size={100} thickness={5} />
+                    <CircularProgress size={100} thickness={5}/>
                 </div>
             );
         }
@@ -58,12 +58,10 @@ class ReviewsPage extends React.Component {
                 <Table>
                     <TableBody displayRowCheckbox={false}>
                         <TableRow>
-                        <TableHeaderColumn>packageName</TableHeaderColumn>
-                        <TableHeaderColumn>appVersionCode</TableHeaderColumn>
-                        <TableHeaderColumn>appVersionName</TableHeaderColumn>
-                        <TableHeaderColumn>starRating</TableHeaderColumn>
-                        <TableHeaderColumn>reviewText</TableHeaderColumn>
-                        <TableHeaderColumn>categoryName</TableHeaderColumn>
+                            <TableHeaderColumn>starRating</TableHeaderColumn>
+                            <TableHeaderColumn>reviewText</TableHeaderColumn>
+                            <TableHeaderColumn>actionReply</TableHeaderColumn>
+                            <TableHeaderColumn>categoryName</TableHeaderColumn>
                         </TableRow>
                         {this.renderRows()}
                     </TableBody>
