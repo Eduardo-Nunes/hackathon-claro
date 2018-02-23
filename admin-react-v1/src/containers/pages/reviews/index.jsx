@@ -1,10 +1,12 @@
 import React from 'react';
 import globalStyles from '../../../styles/global';
+// import { RingLoader } from 'react-spinners';
 import {
-    FlatButton, RaisedButton, Table, TableBody, TableHeader, TableHeaderColumn, TableRow,
-    TableRowColumn
+    CircularProgress,
+    Table, TableBody, TableHeaderColumn, TableRow,
 } from "material-ui";
 import ReviewListItem from "../../../componentes/review-list-item";
+import services from "../../../services";
 
 const styles = {
     propContainer: {
@@ -18,42 +20,42 @@ const styles = {
 };
 
 class ReviewsPage extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            title: "Reviews do aplicativo NOW Online",
+            appReviews: null
+        };
+    }
+    componentDidMount() {
+        services.getAppReviews()
+            .then(data => {
+                console.log(data.data);
+                this.setState({ appReviews: data.data });
+            })
+    }
     renderRows() {
         const rows = [];
-        let reviewList = [];
-        for (let i = 0; i <= 10; i++) {
-            reviewList[i] ={
-                "_id": "5a8f65de68a8d739fde9df6c",
-                "packageName": "br.com.netcombo.now",
-                "appVersionCode": "70000",
-                "appVersionName": "7.0.0",
-                "reviewerLanguage": "pt",
-                "device": "j7velte",
-                "reviewSubmitMillisSinceEpoch": "2018-02-02T19:17:59.360Z",
-                "reviewLastUpdateMillisSinceEpoch": "2018-02-02T19:18:34.985Z",
-                "starRating": 1,
-                "reviewTitle": "",
-                "reviewText": "O áudio é uma bosta",
-                "developerReplyMillisSinceEpoch": "Thu Jan 01 1970 00:00:00 GMT+0000",
-                "developerReplyText": "Obrigado por entrar em contato com a Claro Brasil.\n\n  Por favor, envie um e-mail para xxx@claro.com.br, com mais informações com \n  o problema identificado no NOW.\n  \n  Agradecemos pelo seu contato.\n  \n  Claro Brasil",
-                "reviewLink": "https://play.google.com/apps/publish?account=6990757264476384522#ReviewDetailsPlace:p=br.com.netcombo.now&reviewid=gp:AOqpTOGOY7KZf-cEmr6ZLp21zKUFvjEA25ieNyBoHBvlxzgr1zqrkNlc8u6LF53bk-7hbtDhTWBraHdyvdgd8Nk",
-                "processed": true,
-                "categoryName": "Review negativo generico"
-            };
-
+        for (let i = 0; i < this.state.appReviews.length; i++) {
             const componentRow = (
-                <ReviewListItem key={`ReviewListIem-${i}`} review={reviewList[i]}/>
+                <ReviewListItem key={`ReviewListIem-${i}`} review={this.state.appReviews[i]}/>
             );
             rows.push(componentRow);
         }
-
         return rows;
     }
     render() {
+        if (!this.state.appReviews) {
+            return (
+                <div className='sweet-loading' style={{width: '100%'}}>
+                    <CircularProgress size={100} thickness={5} />
+                </div>
+            );
+        }
         return (
             <div>
                 <h3 style={globalStyles.navigation}>Application / Tela</h3>
-                <Table style={{tableLayout: 'auto'}}>
+                <Table>
                     <TableBody displayRowCheckbox={false}>
                         <TableRow>
                         <TableHeaderColumn>packageName</TableHeaderColumn>

@@ -1,14 +1,16 @@
 import React from 'react';
 import {RaisedButton, TableRow, TableRowColumn} from "material-ui";
+import { withRouter } from "react-router";
 
-class ReviewListIem extends React.Component {
+class ReviewListItem extends React.Component {
     handleToch(e) {
-        alert(e)
+        // debugger
+        this.props.router.push(`reviews/${e}`)
     }
 
     render() {
         let {review} = this.props;
-
+        console.log(review);
         return (<TableRow>
                 <TableRowColumn>{review.packageName}</TableRowColumn>
                 <TableRowColumn>{review.appVersionCode}</TableRowColumn>
@@ -16,19 +18,12 @@ class ReviewListIem extends React.Component {
                 <TableRowColumn>{review.starRating}</TableRowColumn>
                 <TableRowColumn>{review.reviewText}</TableRowColumn>
                 <TableRowColumn>{review.categoryName}</TableRowColumn>
-                <TableRowColumn>{review.action}</TableRowColumn>
-
-                {/*<SelectActionsField*/}
-                {/*values={[{value:1, name:review.developerReplyText}]}*/}
-                {/*handleChange={(value) => {*/}
-                {/*console.log("selecionou a action " + value)*/}
-                {/*}}/>*/}
 
                 <RaisedButton label="Visualizar" primary={true}
-                              onTouchTap={()=>this.handleToch(review.developerReplyText)}/>
+                              onTouchTap={()=>this.handleToch(review._id)}/>
             </TableRow>
         );
     }
 }
 
-export default ReviewListIem;
+export default withRouter(ReviewListItem);
