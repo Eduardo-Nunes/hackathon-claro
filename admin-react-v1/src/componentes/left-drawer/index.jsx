@@ -17,7 +17,7 @@ const LeftDrawer = (props) => {
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          Gestor de Lojas
+          Scanner de Loja
         </div>
         <div style={styles.avatar.div}>
           <span style={styles.avatar.span}>{props.username}</span>
