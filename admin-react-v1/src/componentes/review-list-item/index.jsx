@@ -1,18 +1,31 @@
-import React, { PropTypes } from 'react';
-import { RaisedButton, TableRow, TableRowColumn } from "material-ui";
-
+import React from 'react';
+import {RaisedButton, TableRow, TableRowColumn} from "material-ui";
 
 class ReviewListIem extends React.Component {
-    handleToch (e, review) {
-        console.log('ok')
+    handleToch(e) {
+        alert(e)
     }
+
     render() {
-        return (
-            <TableRow>
-                <TableRowColumn>{this.props.review}</TableRowColumn>
-                <TableRowColumn>John Smith - {this.props.review}</TableRowColumn>
-                <TableRowColumn>Employed - {this.props.review}</TableRowColumn>
-                <RaisedButton label="Visualizar" primary={true} onTouchTap={this.handleToch.bind(this.props.review)} />
+        let {review} = this.props;
+
+        return (<TableRow>
+                <TableRowColumn>{review.packageName}</TableRowColumn>
+                <TableRowColumn>{review.appVersionCode}</TableRowColumn>
+                <TableRowColumn>{review.appVersionName}</TableRowColumn>
+                <TableRowColumn>{review.starRating}</TableRowColumn>
+                <TableRowColumn>{review.reviewText}</TableRowColumn>
+                <TableRowColumn>{review.categoryName}</TableRowColumn>
+                <TableRowColumn>{review.action}</TableRowColumn>
+
+                {/*<SelectActionsField*/}
+                {/*values={[{value:1, name:review.developerReplyText}]}*/}
+                {/*handleChange={(value) => {*/}
+                {/*console.log("selecionou a action " + value)*/}
+                {/*}}/>*/}
+
+                <RaisedButton label="Visualizar" primary={true}
+                              onTouchTap={()=>this.handleToch(review.developerReplyText)}/>
             </TableRow>
         );
     }
