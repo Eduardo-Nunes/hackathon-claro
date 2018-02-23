@@ -17,7 +17,7 @@ const LeftDrawer = (props) => {
       docked={true}
       open={navDrawerOpen}>
         <div style={styles.logo}>
-          Mobile Backoffice
+          Gestor de Lojas
         </div>
         <div style={styles.avatar.div}>
           <span style={styles.avatar.span}>{props.username}</span>

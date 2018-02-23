@@ -9,7 +9,7 @@ const ReviewListIem = (props) => {
             <TableRowColumn>{review}</TableRowColumn>
             <TableRowColumn>John Smith - {review}</TableRowColumn>
             <TableRowColumn>Employed - {review}</TableRowColumn>
-            <RaisedButton label="Visualizar" primary={true} onClick={_test}/>
+            <RaisedButton label="Visualizar" primary={true} onTouchTap={() => console.log("clicou no "+review)}/>
         </TableRow>
     )
 };
