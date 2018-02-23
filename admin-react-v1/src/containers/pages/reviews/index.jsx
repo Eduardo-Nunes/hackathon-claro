@@ -54,7 +54,7 @@ class ReviewsPage extends React.Component {
         }
         return (
             <div>
-                <h3 style={globalStyles.navigation}>Application / Tela</h3>
+                <h3 style={globalStyles.navigation}>Application / Reviews</h3>
                 <Table>
                     <TableBody displayRowCheckbox={false}>
                         <TableRow>

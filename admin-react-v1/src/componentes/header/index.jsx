@@ -28,7 +28,6 @@ class Header extends React.Component {
           }
           iconElementRight={
             <div style={stylesComponent.iconsRightContainer}>
-              <MenuItem style={globalStyles.menuItem} primaryText="Sign out" />
             </div>
           }
         />
