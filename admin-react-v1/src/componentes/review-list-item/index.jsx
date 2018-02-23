@@ -2,11 +2,13 @@ import React from 'react';
 import {RaisedButton, TableRow, TableRowColumn} from "material-ui";
 
 class ReviewListIem extends React.Component {
-    handleToch(e, review) {
-        console.log('ok')
+    handleToch(e) {
+        alert(e)
     }
 
     render() {
+        let {review} = this.props;
+
         return (<TableRow>
                 <TableRowColumn>{review.packageName}</TableRowColumn>
                 <TableRowColumn>{review.appVersionCode}</TableRowColumn>
@@ -22,7 +24,8 @@ class ReviewListIem extends React.Component {
                 {/*console.log("selecionou a action " + value)*/}
                 {/*}}/>*/}
 
-                <RaisedButton label="Visualizar" primary={true} onTouchTap={this.handleToch.bind(this.props.review)}/>
+                <RaisedButton label="Visualizar" primary={true}
+                              onTouchTap={()=>this.handleToch(review.developerReplyText)}/>
             </TableRow>
         );
     }
