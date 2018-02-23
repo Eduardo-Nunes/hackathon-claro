@@ -1,6 +1,3 @@
-# Candidato a vaga de front-end
-Esse projeto e para o processo seletivo da [easynvest](https://www.easynvest.com.br/precadastro?gclid=CjwKCAiA78XTBRBiEiwAGv7EKl8MqOrwTyaQFmlEh7qM260gXOzQR6OUy080EF_fBcUdpZ7WL1hsxBoCPXIQAvD_BwE)
-
 ## Ambiente de desenvolvimento
 
 - node versão >= 8.5.0
