@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import routes from './router';
 
 injectTapEventPlugin();

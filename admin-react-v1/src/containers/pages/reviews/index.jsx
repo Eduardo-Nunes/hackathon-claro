@@ -12,7 +12,7 @@ class ReviewsPage extends React.Component {
         const rows = [];
         for (let i = 0; i <= 10; i++) {
             const componentRow = (
-                <ReviewListIem review={i}/>
+                <ReviewListIem key={`ReviewListIem-${i}`} review={i}/>
             );
             rows.push(componentRow);
         }
